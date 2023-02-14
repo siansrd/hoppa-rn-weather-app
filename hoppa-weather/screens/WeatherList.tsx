@@ -1,6 +1,9 @@
-import { Text } from "react-native"
+import { Text, FlatList, View } from "react-native"
 import { API_KEY } from "../utils/keys"
-import useRequest, { RequestConfig } from "../utils/requests/useRequest"
+import useRequest, {
+  DayWeather,
+  RequestConfig,
+} from "../utils/requests/useRequest"
 
 const config: RequestConfig = {
   url: "http://api.weatherapi.com/v1/forecast.json",
@@ -12,9 +15,26 @@ const config: RequestConfig = {
   },
 }
 
+const renderItem = ({ item }: { item: DayWeather }) => {
+  return (
+    <View>
+      <Text>{item.date}</Text>
+    </View>
+  )
+}
+
 const WeatherList = () => {
   const response = useRequest(config)
-  return <Text>Weather List</Text>
+
+  return response.data ? (
+    <FlatList
+      data={response.data}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.date}
+    />
+  ) : (
+    <Text>Loading</Text>
+  )
 }
 
 export default WeatherList

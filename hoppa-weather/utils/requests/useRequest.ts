@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import getWeatherData from "./dataMapper/getWeatherData"
 
 export type DayWeather = {
   date: string
@@ -37,10 +38,11 @@ const useRequest = (config: RequestConfig): ResponseState => {
   const makeRequest = async () => {
     try {
       const response = await axios.request(config)
+      const data = getWeatherData(response.data)
       setResponseState({
         status: RequestStatus.SUCCESS,
         error: null,
-        data: response.data,
+        data,
       })
     } catch (error) {
       setResponseState({

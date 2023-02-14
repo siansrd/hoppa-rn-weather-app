@@ -5,7 +5,7 @@ describe("getWeatherData", () => {
   test("returns array of forecasts", () => {
     const weekForecast: DayWeather[] = []
     const response = {
-      forecast: { forecasteday: weekForecast },
+      forecast: { forecastday: weekForecast },
     }
     expect(getWeatherData(response)).toBe(weekForecast)
   })
