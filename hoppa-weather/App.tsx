@@ -4,15 +4,11 @@ import { StatusBar } from "expo-status-bar"
 import { StyleSheet } from "react-native"
 import WeatherDetail from "./screens/WeatherDetail"
 import WeatherList from "./screens/WeatherList"
-import { DayWeather } from "./utils/requests/useRequest"
-
-export const WEEK_WEATHER_ROUTE = "Week"
-export const DAY_WEATHER_ROUTE = "Day"
-
-export type RootStackParamList = {
-  [WEEK_WEATHER_ROUTE]: undefined
-  [DAY_WEATHER_ROUTE]: DayWeather | undefined
-}
+import {
+  DAY_WEATHER_ROUTE,
+  RootStackParamList,
+  WEEK_WEATHER_ROUTE,
+} from "./utils/navigation/routes"
 
 export default function App() {
   const Stack = createNativeStackNavigator<RootStackParamList>()

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import { Pressable, View, Text, Image, StyleSheet } from "react-native"
-import { DAY_WEATHER_ROUTE } from "../App"
+import { DAY_WEATHER_ROUTE } from "../utils/navigation/routes"
 import { DayWeather } from "../utils/requests/useRequest"
 
 const WeatherListItem = ({ weather }: { weather: DayWeather }) => {
