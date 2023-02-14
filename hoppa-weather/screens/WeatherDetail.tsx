@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from "react-native"
 import type { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { RootStackParamList } from "../App"
+import { RootStackParamList } from "../utils/navigation/routes"
 
 type WeatherDetailProps = NativeStackScreenProps<RootStackParamList, "Day">
 
