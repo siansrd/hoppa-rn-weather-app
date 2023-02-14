@@ -1,4 +1,5 @@
 import { Text, FlatList, View } from "react-native"
+import WeatherListItem from "../components/WeatherListItem"
 import { API_KEY } from "../utils/keys"
 import useRequest, {
   DayWeather,
@@ -18,7 +19,7 @@ const config: RequestConfig = {
 const renderItem = ({ item }: { item: DayWeather }) => {
   return (
     <View>
-      <Text>{item.date}</Text>
+      <WeatherListItem weather={item} />
     </View>
   )
 }
