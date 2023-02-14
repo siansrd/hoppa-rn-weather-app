@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import getWeatherData from "./dataMapper/getWeatherData"
+import { RequestConfig } from "./config"
 
 export type DayWeather = {
   date: string
+  image: string
+  description: string
+  minTemp: number
+  maxTemp: number
+  chanceOfRain: number
 }
 
 type ResponseState = {
   status: RequestStatus
   error: string | null
   data: any
-}
-
-export type RequestConfig = {
-  url: string
-  method: string
-  params: {
-    key: string
-    q: string
-    days: number
-  }
 }
 
 enum RequestStatus {
